@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>John Doe — Portfolio</title>
+  <meta name="description" content="Personal website and portfolio of John Doe — projects, writing, and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-60jK9qO3o4p6o7f6x2qV2MPY2m3hB1JqE9m2Q0Yb8F0vH3l2gF0yF6v+oZy0wN8a7V0S5y2R9w4QkI7mM2xYQw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <style>
+    :root{
+      /* Palette inspired by your dashboard */
+      --bg: #f4f6f8;            /* page background */
+      --text: #1f2a37;          /* body text */
+      --muted: #6b7280;         /* secondary text */
+      --panel: #ffffff;         /* cards */
+      --border: #e5e7eb;        /* lines */
+      --sidebar: #2f5577;       /* left rail */
+      --sidebar-text: #e5e7eb;  /* sidebar text */
+      --accent: #7b5c83;        /* mauve/purple buttons */
+      --accent-2: #b37fa2;      /* lighter accent */
+      --accent-3: #d7b7cb;      /* very light accent */
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+    [data-theme="dark"]{
+      --bg: #0f141a;
+      --text: #e5e9f0;
+      --muted: #aab3c5;
+      --panel: #19212a;
+      --border: #243040;
+      --sidebar: #20374f;
+      --sidebar-text: #dbe2ec;
+      --accent: #a77bb1;
+      --accent-2: #c69fcf;
+      --accent-3: #3a2f3f;
+      --shadow: 0 10px 30px rgba(0,0,0,.5);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; color:var(--text); background:var(--bg); line-height:1.6;
+    }
+    .layout{display:grid; grid-template-columns: 280px 1fr; min-height:100vh}
+
+    /* Sidebar */
+    .sidebar{
+      background: var(--sidebar);
+      color: var(--sidebar-text);
+      padding: 28px 16px;
+      position: sticky; top:0; height:100vh; overflow:auto;
+      border-right: 1px solid rgba(255,255,255,.08);
+    }
+    .brand{display:flex; align-items:center; gap:.75rem; font-weight:700; letter-spacing:.2px}
+    .brand i{color:var(--accent-2)}
+    .subtitle{opacity:.8; font-size:.9rem; margin-top:.15rem}
+
+    nav ul{list-style:none; padding:0; margin:20px 0}
+    nav li{margin-bottom:10px}
+    .nav-link{
+      display:flex; align-items:center; gap:.6rem; text-decoration:none;
+      color:var(--sidebar-text); padding:10px 12px; border-radius:10px; transition:all .15s ease;
+    }
+    .nav-link:hover{background:rgba(255,255,255,.08)}
+    .nav-link.active{background:rgba(255,255,255,.14)}
+
+    .sidebar .badge{
+      display:inline-block; padding:.25rem .5rem; border-radius:999px; background:rgba(255,255,255,.1); font-size:.75rem;
+    }
+
+    .sidebar-footer{margin-top:24px; display:flex; gap:10px; flex-wrap:wrap}
+    .btn-secondary, .btn-primary{
+      border:1px solid rgba(255,255,255,.25); color:var(--sidebar-text); background:transparent; padding:.5rem .75rem; border-radius:8px; cursor:pointer;
+    }
+    .btn-primary{ background: linear-gradient(180deg, var(--accent), var(--accent-2)); border-color: transparent; color:#fff }
+    .small{font-size:.85rem; opacity:.8}
+
+    /* Content */
+    .content{padding:40px 48px; max-width:1100px}
+    .headline{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .h1{font-size:2.2rem; font-weight:700; letter-spacing:.2px}
+    .muted{color:var(--muted)}
+
+    .card{
+      background:var(--panel); border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow);
+    }
+    .card.pad{padding:22px}
+
+    .grid{display:grid; gap:18px}
+    .grid.cols-2{grid-template-columns: repeat(2, minmax(0,1fr))}
+    .grid.cols-3{grid-template-columns: repeat(3, minmax(0,1fr))}
+
+    .chip{display:inline-flex; align-items:center; gap:.35rem; font-size:.8rem; padding:.35rem .6rem; border-radius:999px; border:1px solid var(--border); background:linear-gradient(180deg,#fff, #f8fafc)}
+    [data-theme="dark"] .chip{background:linear-gradient(180deg,#212a36,#1a2330); border-color:#2d3a4e}
+
+    .project{
+      display:flex; flex-direction:column; gap:10px; text-decoration:none; color:inherit; transition:transform .12s ease, box-shadow .12s ease;
+    }
+    .project:hover{ transform:translateY(-2px); box-shadow:0 12px 26px rgba(0,0,0,.08) }
+    .project h3{margin:.25rem 0; font-size:1.1rem}
+    .project .thumb{height:150px; border-radius:12px; background:linear-gradient(135deg, var(--accent-3), #eaeff4); border:1px solid var(--border);}
+    [data-theme="dark"] .project .thumb{background:linear-gradient(135deg,#2e2433,#223246)}
+
+    .section{margin:28px 0 8px}
+    .section h2{font-size:1.5rem; margin:0 0 12px}
+
+    .kicker{font-weight:600; color:var(--accent)}
+
+    .footer{margin-top:36px; padding:22px 0; color:var(--muted); font-size:.95rem}
+
+    /* Header pill buttons */
+    .tool-row{display:flex; gap:10px; flex-wrap:wrap}
+    .pill{
+      display:inline-flex; align-items:center; gap:.5rem; padding:.55rem .9rem; border-radius:999px; border:1px solid var(--border);
+      background:var(--panel); cursor:pointer
+    }
+    .pill i{color:var(--accent)}
+
+    /* Mobile */
+    .hamburger{display:none; position:fixed; top:14px; left:14px; z-index:20; background:var(--panel); color:var(--text); border:1px solid var(--border); border-radius:10px; padding:8px 10px; box-shadow:var(--shadow)}
+    .drawer{display:none}
+
+    @media (max-width: 980px){
+      .layout{grid-template-columns: 1fr}
+      .sidebar{position:fixed; left:-320px; width:280px; height:100vh; z-index:30; transition:left .25s ease}
+      .drawer.show .sidebar{left:0}
+      .drawer.show .scrim{opacity:1; pointer-events:auto}
+      .hamburger{display:inline-flex}
+      .content{padding:80px 20px}
+      .grid.cols-2{grid-template-columns:1fr}
+      .grid.cols-3{grid-template-columns:1fr}
+    }
+
+    .scrim{position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:25; opacity:0; pointer-events:none; transition:opacity .2s ease}
+
+    /* Smooth anchor scrolling */
+    html{scroll-behavior:smooth}
+  </style>
+</head>
+<body>
+
+  <button class="hamburger" aria-label="Open menu" id="openMenu"><i class="fa-solid fa-bars"></i></button>
+  <div class="layout drawer" id="drawer">
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Primary">
+      <div class="brand" style="margin-bottom:18px">
+        <i class="fa-solid fa-user-astronaut"></i>
+        <div>
+          <div>Alexander Cavoli</div>
+          <div class="subtitle">Computer Scientist • Mathematician • Student</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a class="nav-link active" href="#home"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+          <li><a class="nav-link" href="#skills"><i class="fa-solid fa-code"></i><span>Skills</span></a></li>
+          <li><a class="nav-link" href="#experience"><i class="fa-solid fa-briefcase"></i><span>Experience</span></a></li>
+          <li><a class="nav-link" href="#projects"><i class="fa-solid fa-diagram-project"></i><span>Projects</span></a></li>
+          <li><a class="nav-link" href="#links"><i class="fa-solid fa-link"></i><span>Links</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="btn-primary" id="themeToggle"><i class="fa-regular fa-moon"></i> <span>Switch to Dark Mode</span></button>
+        <a class="btn-secondary small" href="#" id="downloadResume"><i class="fa-solid fa-file-arrow-down"></i> Resume</a>
+        <span class="badge">Available for projects</span>
+      </div>
+
+      <div style="margin-top:30px" class="small">© <span id="year"></span> John Doe</div>
+    </aside>
+
+    <!-- Scrim for mobile -->
+    <div class="scrim" id="scrim" aria-hidden="true"></div>
+
+    <!-- Main content -->
+    <main class="content">
+      <!-- Home / Intro -->
+      <section id="home" class="card pad">
+        <div class="headline">
+          <div>
+            <div class="kicker">Hello, I'm</div>
+            <h1 class="h1" style="margin:.25rem 0 6px">John Doe</h1>
+            <p class="muted" style="margin-top:0; max-width:60ch">Computer Science & Mathematics student. I build backend services, data tooling, and polished web apps. Focused on reliability, performance, and developer experience.</p>
+            <div class="tool-row" style="margin-top:12px">
+              <a class="pill" href="#skills"><i class="fa-solid fa-code"></i> Skills</a>
+              <a class="pill" href="#projects"><i class="fa-solid fa-rocket"></i> Projects</a>
+              <a class="pill" href="#links"><i class="fa-solid fa-link"></i> Links</a>
+            </div>
+          </div>
+          <div class="tool-row">
+            <a class="pill" href="https://github.com/yourusername" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a class="pill" href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a class="pill" href="/resume.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i> Resume</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section">
+        <h2>Projects</h2>
+        <p class="muted" style="margin-top:-4px;margin-bottom:12px">A few things I've shipped recently.</p>
+        <div class="grid cols-3">
+          <a class="card pad project" href="#" aria-label="Presentation Assistants">
+            <div class="thumb"></div>
+            <h3>Presentation Assistants</h3>
+            <p class="muted">Interactive slide tools with quizzes, surveys, and live triggers for audience engagement.</p>
+            <div class="tool-row">
+              <span class="chip"><i class="fa-brands fa-php"></i> PHP</span>
+              <span class="chip"><i class="fa-brands fa-js"></i> JS</span>
+              <span class="chip"><i class="fa-brands fa-bootstrap"></i> Bootstrap</span>
+            </div>
+          </a>
+
+          <a class="card pad project" href="#" aria-label="Secure Chat">
+            <div class="thumb"></div>
+            <h3>Secure Chat</h3>
+            <p class="muted">Zero-copy, ephemeral chat experiments with auth hardening and CSP-by-default.</p>
+            <div class="tool-row">
+              <span class="chip"><i class="fa-brands fa-node"></i> Node</span>
+              <span class="chip"><i class="fa-brands fa-docker"></i> Docker</span>
+              <span class="chip"><i class="fa-solid fa-shield-halved"></i> CSP</span>
+            </div>
+          </a>
+
+          <a class="card pad project" href="#" aria-label="Data Viz Toolkit">
+            <div class="thumb"></div>
+            <h3>Data Viz Toolkit</h3>
+            <p class="muted">Tiny chart components with accessible defaults and no framework lock-in.</p>
+            <div class="tool-row">
+              <span class="chip"><i class="fa-brands fa-python"></i> Python</span>
+              <span class="chip"><i class="fa-solid fa-chart-column"></i> Charts</span>
+              <span class="chip"><i class="fa-solid fa-a"></i>11y</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Writing -->
+      <section id="skills" class="section">
+        <h2>Skills</h2>
+        <div class="grid cols-3">
+          <div class="card pad">
+            <h3>Languages</h3>
+            <div class="tool-row">
+              <span class="chip">C</span>
+              <span class="chip">C++</span>
+              <span class="chip">C#</span>
+              <span class="chip">Python</span>
+              <span class="chip">JavaScript/TypeScript</span>
+              <span class="chip">PHP</span>
+              <span class="chip">SQL</span>
+            </div>
+          </div>
+          <div class="card pad">
+            <h3>Frameworks & Tools</h3>
+            <div class="tool-row">
+              <span class="chip">Bootstrap</span>
+              <span class="chip">Node.js</span>
+              <span class="chip">Express</span>
+              <span class="chip">React</span>
+              <span class="chip">Docker</span>
+              <span class="chip">Git</span>
+              <span class="chip">Linux</span>
+            </div>
+          </div>
+          <div class="card pad">
+            <h3>Databases & Infra</h3>
+            <div class="tool-row">
+              <span class="chip">MySQL/MariaDB</span>
+              <span class="chip">SQLite</span>
+              <span class="chip">Redis</span>
+              <span class="chip">AWS EC2</span>
+              <span class="chip">Nginx</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section">
+        <h2>Experience</h2>
+        <div class="grid cols-2">
+          <article class="card pad">
+            <div class="muted">2024 — Present</div>
+            <h3>Software Engineer (Part‑time) — PresentationAssistants</h3>
+            <ul>
+              <li>Built a multi‑tenant dashboard with projects, groups, and live audience tools.</li>
+              <li>Implemented onboarding, access control, and dark mode with localStorage.</li>
+              <li>MySQL schema design; optimized queries and pagination for large datasets.</li>
+            </ul>
+          </article>
+          <article class="card pad">
+            <div class="muted">2023 — 2024</div>
+            <h3>Research Assistant — RPI</h3>
+            <ul>
+              <li>Prototyped data pipelines and visualizations for lab datasets.</li>
+              <li>Automated scraping and normalization in Python; published internal docs.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="links" class="section">
+        <h2>Links</h2>
+        <div class="grid cols-2">
+          <div class="card pad">
+            <h3>Find me online</h3>
+            <div class="tool-row" style="margin-top:6px">
+              <a class="pill" href="https://github.com/yourusername" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a class="pill" href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+              <a class="pill" href="mailto:you@example.com"><i class="fa-regular fa-envelope"></i> Email</a>
+              <a class="pill" href="/resume.pdf" target="_blank" rel="noreferrer noopener"><i class="fa-solid fa-file-lines"></i> Resume</a>
+            </div>
+          </div>
+          <form class="card pad" action="mailto:you@example.com" method="post" enctype="text/plain">
+            <h3>Quick message</h3>
+            <div style="display:grid; gap:12px">
+              <label>
+                <div class="muted">Your name</div>
+                <input required type="text" name="name" placeholder="Ada Lovelace" style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:var(--panel); color:var(--text)">
+              </label>
+              <label>
+                <div class="muted">Email</div>
+                <input required type="email" name="email" placeholder="ada@example.com" style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:var(--panel); color:var(--text)">
+              </label>
+              <label>
+                <div class="muted">Message</div>
+                <textarea required name="message" rows="5" placeholder="Tell me about your idea…" style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:var(--panel); color:var(--text)"></textarea>
+              </label>
+              <button class="btn-primary" type="submit" style="justify-self:start"><i class="fa-regular fa-paper-plane"></i> Send</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <div class="footer">Designed with a clean left rail, mauve accents, and a simple light/dark toggle — like your dashboard.</div>
+    </main>
+  </div>
+
+  <script>
+    // Active link tracking
+    const links = document.querySelectorAll('.nav-link');
+    const drawer = document.getElementById('drawer');
+    const scrim = document.getElementById('scrim');
+    const openBtn = document.getElementById('openMenu');
+
+    links.forEach(a=>a.addEventListener('click',()=>{
+      links.forEach(l=>l.classList.remove('active'));
+      a.classList.add('active');
+      // Close drawer on mobile
+      drawer.classList.remove('show');
+    }));
+
+    openBtn.addEventListener('click',()=> drawer.classList.add('show'));
+    scrim.addEventListener('click',()=> drawer.classList.remove('show'));
+
+    // Theme toggle with localStorage
+    const toggle = document.getElementById('themeToggle');
+    const span = toggle.querySelector('span');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const saved = localStorage.getItem('theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+    else if (prefersDark) document.documentElement.setAttribute('data-theme','dark');
+
+    function updateToggleText(){
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      span.textContent = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+      toggle.firstElementChild.className = isDark ? 'fa-regular fa-sun' : 'fa-regular fa-moon';
+    }
+    updateToggleText();
+
+    toggle.addEventListener('click',()=>{
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      updateToggleText();
+    });
+
+    // Resume (placeholder)
+    document.getElementById('downloadResume').addEventListener('click', (e)=>{
+      e.preventDefault(); alert('Hook this up to your resume.pdf');
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
