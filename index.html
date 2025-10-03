@@ -144,13 +144,24 @@
     [data-theme="dark"] .project .thumb{background:linear-gradient(135deg,#2e2433,#223246)}
 
 
+    .project .thumb {
+        height: 150px;
+        border-radius: 12px;
+        background-color: #eaeff4;  /* fallback only */
+        border: 1px solid var(--border);
+    }
+    [data-theme="dark"] .project .thumb {
+        background-color: #223246;  /* fallback only */
+    }
     .pa-project .thumb {
-        background-image: url('assets/lightPaBanner.png'); /* adjust path */
+        background-image: url('assets/lightPaBanner.png');
         background-size: cover;
         background-position: center;
-    }[data-theme="dark"] .pa-project .thumb{
-        background-image:url('assets/darkPaBanner.png'); /* exact path/case */
     }
+    [data-theme="dark"] .pa-project .thumb {
+        background-image: url('assets/darkPaBanner.png');
+    }
+
 
     .section{margin:28px 0 8px}
     .section h2{font-size:1.5rem; margin:0 0 12px}
