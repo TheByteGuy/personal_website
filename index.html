@@ -85,6 +85,38 @@
     .btn-primary{ background: linear-gradient(180deg, var(--accent), var(--accent-2)); border-color: transparent; color:#fff }
     .small{font-size:.85rem; opacity:.8}
 
+    /* Minimal, flat style just for the theme toggle */
+    #themeToggle{
+    all: unset;                 /* wipe inherited .btn-primary */
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .55rem .9rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--sidebar-text);
+    font: 500 0.95rem/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    cursor: pointer;
+    }
+
+    #themeToggle i{
+    color: var(--muted);
+    }
+
+    #themeToggle:hover{
+    background: rgba(0,0,0,.04);
+    }
+    [data-theme="dark"] #themeToggle:hover{
+    background: rgba(255,255,255,.06);
+    }
+
+    #themeToggle:focus-visible{
+    outline: 2px solid color-mix(in srgb, var(--accent) 55%, transparent);
+    outline-offset: 2px;
+    }
+
+
     /* Content */
     .content{padding:40px 48px; max-width:1100px}
     .headline{display:flex; align-items:center; justify-content:space-between; gap:16px}
@@ -116,6 +148,8 @@
         background-image: url('assets/paBanner.png'); /* adjust path */
         background-size: cover;
         background-position: center;
+    }[data-theme="dark"] .pa-project .thumb{
+        background-image:url('assets/darkPaBanner.png'); /* exact path/case */
     }
 
     .section{margin:28px 0 8px}
