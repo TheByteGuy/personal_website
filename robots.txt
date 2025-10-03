@@ -1,0 +1,37 @@
+# robots.txt for Alexander Cavoli — Portfolio
+
+# Let normal search engines crawl everything
+User-agent: *
+Allow: /
+# Keep tracking-param duplicates out of indexes (supported by major engines)
+Disallow: /*?*utm_=
+Disallow: /*?*fbclid=
+Disallow: /*?*gclid=
+
+# No private/system paths (add more if you create them)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+
+# Be explicit: assets and projects are OK
+Allow: /assets/
+Allow: /projects/
+
+# Link preview fetchers (social cards) — allow
+User-agent: facebookexternalhit
+Allow: /
+User-agent: Twitterbot
+Allow: /
+
+# Opt out of common AI-training crawlers
+User-agent: GPTBot
+Disallow: /
+User-agent: Google-Extended
+Disallow: /
+User-agent: Applebot-Extended
+Disallow: /
+User-agent: CCBot
+Disallow: /
+
+# Sitemap
+Sitemap: https://cavoli.tech/sitemap.xml
