@@ -198,6 +198,18 @@
 
     /* Smooth anchor scrolling */
     html{scroll-behavior:smooth}
+
+    
+    /* PA banner override — must be last */
+    .project.pa-project .thumb{
+    background: url("assets/lightPaBanner.png") center/cover no-repeat !important;
+    border: 1px solid var(--border); /* keeps your border */
+    }
+
+    [data-theme="dark"] .project.pa-project .thumb{
+    background: url("assets/darkPaBanner.png") center/cover no-repeat !important;
+    }
+
   </style>
 </head>
 <body>
