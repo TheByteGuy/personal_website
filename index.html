@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -120,7 +121,6 @@
 
     /* Mobile */
     .hamburger{display:none; position:fixed; top:14px; left:14px; z-index:20; background:var(--panel); color:var(--text); border:1px solid var(--border); border-radius:10px; padding:8px 10px; box-shadow:var(--shadow)}
-    .drawer{display:none}
 
     @media (max-width: 980px){
       .layout{grid-template-columns: 1fr}
@@ -357,27 +357,28 @@
     openBtn.addEventListener('click',()=> drawer.classList.add('show'));
     scrim.addEventListener('click',()=> drawer.classList.remove('show'));
 
-    // Theme toggle with localStorage
+    // Theme toggle with localStorage (light by default)
     const toggle = document.getElementById('themeToggle');
     const span = toggle.querySelector('span');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
     const saved = localStorage.getItem('theme');
-    if (saved) document.documentElement.setAttribute('data-theme', saved);
-    else if (prefersDark) document.documentElement.setAttribute('data-theme','dark');
+    document.documentElement.setAttribute('data-theme', saved || 'light');
 
     function updateToggleText(){
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      span.textContent = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
-      toggle.firstElementChild.className = isDark ? 'fa-regular fa-sun' : 'fa-regular fa-moon';
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    span.textContent = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+    toggle.firstElementChild.className = isDark ? 'fa-regular fa-sun' : 'fa-regular fa-moon';
     }
     updateToggleText();
 
     toggle.addEventListener('click',()=>{
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-      localStorage.setItem('theme', isDark ? 'light' : 'dark');
-      updateToggleText();
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const next = isDark ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateToggleText();
     });
+
 
     // Resume (placeholder)
     document.getElementById('downloadResume').addEventListener('click', (e)=>{
