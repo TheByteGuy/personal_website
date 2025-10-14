@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/site.css">
+  <title>Alexander Cavoli — Portfolio</title>
+  <meta name="description" content="Personal website and portfolio of Alexander Cavoli — projects, writing, and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/pfp.png" type="image/png" sizes="32x32">
+  <link rel="shortcut icon" href="assets/pfp.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/pfp.png">
+  <meta name="theme-color" content="#2f5577">
+
+  <style>
+
+    /* PA banner override — must be last */
+    .project.pa-project .thumb{
+    background: url("assets/lightPaBanner.png") center/cover no-repeat !important;
+    border: 1px solid var(--border); /* keeps your border */
+    }
+
+    [data-theme="dark"] .project.pa-project .thumb{
+    background: url("assets/darkPaBanner.png") center/cover no-repeat !important;
+    }
+
+  </style>
+</head>
+<body>
+
+  <button class="hamburger" aria-label="Open menu" id="openMenu"><i class="fa-solid fa-bars"></i></button>
+  <div class="layout drawer" id="drawer">
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Primary">
+      <div class="brand" style="margin-bottom:18px">
+        <i class="fa-solid fa-user-astronaut"></i>
+        <div>
+          <div>Alexander Cavoli</div>
+          <div class="subtitle">Computer Scientist • Mathematician • Student</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a class="nav-link active" href="#home"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+          <li><a class="nav-link" href="#skills"><i class="fa-solid fa-code"></i><span>Skills</span></a></li>
+          <li><a class="nav-link" href="#experience"><i class="fa-solid fa-briefcase"></i><span>Experience</span></a></li>
+          <li><a class="nav-link" href="#projects"><i class="fa-solid fa-diagram-project"></i><span>Projects</span></a></li>
+          <li><a class="nav-link" href="#links"><i class="fa-solid fa-link"></i><span>Links</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="btn-primary" id="themeToggle"><i class="fa-regular fa-moon"></i> <span>Switch to Dark Mode</span></button>
+        <a class="btn-secondary small" href="#" id="downloadResume"><i class="fa-solid fa-file-arrow-down"></i> Resume</a>
+        <span class="badge">Available for projects</span>
+      </div>
+
+      <div style="margin-top:30px" class="small">© <span id="year"></span> Alexander Cavoli</div>
+    </aside>
+
+    <!-- Scrim for mobile -->
+    <div class="scrim" id="scrim" aria-hidden="true"></div>
+
+    <!-- Main content -->
+    <main class="content">
+      <!-- Home / Intro -->
+      <section id="home" class="card pad">
+        <div class="headline">
+          <div>
+            <div class="kicker">Hello, I'm</div>
+            <h1 class="h1" style="margin:.25rem 0 6px">Alexander Cavoli</h1>
+            <p class="muted" style="margin-top:0; max-width:60ch">Computer Science & Mathematics student. I build backend services, data tooling, and polished web apps. Focused on reliability, performance, and developer experience.</p>
+            <div class="tool-row" style="margin-top:12px">
+              <a class="pill" href="#skills"><i class="fa-solid fa-code"></i> Skills</a>
+              <a class="pill" href="#projects"><i class="fa-solid fa-rocket"></i> Projects</a>
+              <a class="pill" href="#links"><i class="fa-solid fa-link"></i> Links</a>
+            </div>
+          </div>
+          <div class="tool-row">
+            <a class="pill" href="https://github.com/TheByteGuy" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a class="pill" href="https://www.linkedin.com/in/alexander-cavoli-845b96358" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a class="pill" href="/resume.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i> Resume</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section">
+        <h2>Projects</h2>
+        <p class="muted" style="margin-top:-4px;margin-bottom:12px">A few things I've shipped recently.</p>
+        <div class="grid cols-3">
+        <a class="card pad project pa-project"
+        href="projects/presentation_assistants/"
+        aria-label="Presentation Assistants">
+            <div class="thumb"></div>
+            <h3>Presentation Assistants</h3>
+            <p class="muted">Interactive slide tools with quizzes, surveys, and live triggers for audience engagement.</p>
+            <div class="tool-row">
+              <span class="chip"><i class="fa-brands fa-php"></i> PHP</span>
+              <span class="chip"><i class="fa-brands fa-js"></i> JS</span>
+              <span class="chip"><i class="fa-brands fa-bootstrap"></i> Bootstrap</span>
+            </div>
+          </a>
+
+          <a class="card pad project" href="#" aria-label="Secure Chat">
+            <div class="thumb"></div>
+            <h3>Secure Chat</h3>
+            <p class="muted">Zero-copy, ephemeral chat experiments with auth hardening and CSP-by-default.</p>
+            <div class="tool-row">
+              <span class="chip"><i class="fa-brands fa-node"></i> Node</span>
+              <span class="chip"><i class="fa-brands fa-docker"></i> Docker</span>
+              <span class="chip"><i class="fa-solid fa-shield-halved"></i> CSP</span>
+            </div>
+          </a>
+
+          <a class="card pad project" href="#" aria-label="Data Viz Toolkit">
+            <div class="thumb"></div>
+            <h3>Data Viz Toolkit</h3>
+            <p class="muted">Tiny chart components with accessible defaults and no framework lock-in.</p>
+            <div class="tool-row">
+              <span class="chip"><i class="fa-brands fa-python"></i> Python</span>
+              <span class="chip"><i class="fa-solid fa-chart-column"></i> Charts</span>
+              <span class="chip"><i class="fa-solid fa-a"></i>11y</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Writing -->
+      <section id="skills" class="section">
+        <h2>Skills</h2>
+        <div class="grid cols-3">
+          <div class="card pad">
+            <h3>Languages</h3>
+            <div class="tool-row">
+              <span class="chip">C</span>
+              <span class="chip">C++</span>
+              <span class="chip">C#</span>
+              <span class="chip">Python</span>
+              <span class="chip">JavaScript/TypeScript</span>
+              <span class="chip">PHP</span>
+              <span class="chip">SQL</span>
+            </div>
+          </div>
+          <div class="card pad">
+            <h3>Frameworks & Tools</h3>
+            <div class="tool-row">
+              <span class="chip">Bootstrap</span>
+              <span class="chip">Node.js</span>
+              <span class="chip">Express</span>
+              <span class="chip">React</span>
+              <span class="chip">Docker</span>
+              <span class="chip">Git</span>
+              <span class="chip">Linux</span>
+            </div>
+          </div>
+          <div class="card pad">
+            <h3>Databases & Infra</h3>
+            <div class="tool-row">
+              <span class="chip">MySQL/MariaDB</span>
+              <span class="chip">SQLite</span>
+              <span class="chip">Redis</span>
+              <span class="chip">AWS EC2</span>
+              <span class="chip">Nginx</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section">
+        <h2>Experience</h2>
+        <div class="grid cols-2">
+          <article class="card pad">
+            <div class="muted">2024 — Present</div>
+            <h3>Software Engineer (Part‑time) — PresentationAssistants</h3>
+            <ul>
+              <li>Built a multi‑tenant dashboard with projects, groups, and live audience tools.</li>
+              <li>Implemented onboarding, access control, and dark mode with localStorage.</li>
+              <li>MySQL schema design; optimized queries and pagination for large datasets.</li>
+            </ul>
+          </article>
+          <article class="card pad">
+            <div class="muted">2023 — 2024</div>
+            <h3>Research Assistant — RPI</h3>
+            <ul>
+              <li>Prototyped data pipelines and visualizations for lab datasets.</li>
+              <li>Automated scraping and normalization in Python; published internal docs.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="links" class="section">
+        <h2>Links</h2>
+        <div class="grid cols-2">
+          <div class="card pad">
+            <h3>Find me online</h3>
+            <div class="tool-row" style="margin-top:6px">
+              <a class="pill" href="https://github.com/TheByteGuy" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a class="pill" href="https://www.linkedin.com/in/alexander-cavoli-845b96358" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+              <a class="pill" href="mailto:cavola@rpi.edu"><i class="fa-regular fa-envelope"></i> Email</a>
+              <a class="pill" href="/resume.pdf" target="_blank" rel="noreferrer noopener"><i class="fa-solid fa-file-lines"></i> Resume</a>
+            </div>
+          </div>
+          <form class="card pad" action="mailto:cavola@rpi.edu" method="post" enctype="text/plain">
+            <h3>Quick message</h3>
+            <div style="display:grid; gap:12px">
+              <label>
+                <div class="muted">Your name</div>
+                <input required type="text" name="name" placeholder="Ada Lovelace" style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:var(--panel); color:var(--text)">
+              </label>
+              <label>
+                <div class="muted">Email</div>
+                <input required type="email" name="email" placeholder="ada@example.com" style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:var(--panel); color:var(--text)">
+              </label>
+              <label>
+                <div class="muted">Message</div>
+                <textarea required name="message" rows="5" placeholder="Tell me about your idea…" style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:var(--panel); color:var(--text)"></textarea>
+              </label>
+              <button class="btn-primary" type="submit" style="justify-self:start"><i class="fa-regular fa-paper-plane"></i> Send</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <div class="footer">Feel free to reach out and contact me anytime!</div>
+    </main>
+  </div>
+
+  <script>
+    // Active link tracking
+    const links = document.querySelectorAll('.nav-link');
+    const drawer = document.getElementById('drawer');
+    const scrim = document.getElementById('scrim');
+    const openBtn = document.getElementById('openMenu');
+
+    links.forEach(a=>a.addEventListener('click',()=>{
+      links.forEach(l=>l.classList.remove('active'));
+      a.classList.add('active');
+      // Close drawer on mobile
+      drawer.classList.remove('show');
+    }));
+
+    openBtn.addEventListener('click',()=> drawer.classList.add('show'));
+    scrim.addEventListener('click',()=> drawer.classList.remove('show'));
+
+    // Theme toggle with localStorage (light by default)
+    const toggle = document.getElementById('themeToggle');
+    const span = toggle.querySelector('span');
+
+    const saved = localStorage.getItem('theme');
+    document.documentElement.setAttribute('data-theme', saved || 'light');
+
+    function updateToggleText(){
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    span.textContent = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+    toggle.firstElementChild.className = isDark ? 'fa-regular fa-sun' : 'fa-regular fa-moon';
+    }
+    updateToggleText();
+
+    toggle.addEventListener('click',()=>{
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const next = isDark ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateToggleText();
+    });
+
+
+    // Resume (placeholder)
+    document.getElementById('downloadResume').addEventListener('click', (e)=>{
+      e.preventDefault(); alert('Hook this up to your resume.pdf');
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
