@@ -1,0 +1,243 @@
+:root{
+  /* Light defaults (site opens light when OS is light) */
+  --bg: #fafbff;
+  --panel: #ffffff;
+  --text: #0f172a;
+  --muted: #536079;
+  --brand: #305cff;
+  --brand-2: #7fa2ff;
+  --border: rgba(15,23,42,.08);
+  --shadow: 0 8px 24px rgba(15,23,42,.06);
+  --radius: 16px;
+  --speed: .18s;
+  --ring: color-mix(in oklab, var(--brand) 30%, transparent);
+}
+[data-theme="dark"]{
+  --bg: #0b1020;
+  --panel: #11162a;
+  --text: #E6EAF2;
+  --muted: #9AA3B2;
+  --brand: #6aa9ff;
+  --brand-2: #9dd0ff;
+  --border: rgba(255,255,255,.08);
+  --shadow: 0 8px 24px rgba(0,0,0,.35);
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(96,165,250,.12), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  letter-spacing: .2px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a{color:inherit; text-decoration:none}
+img{max-width:100%; display:block}
+.container{width:min(980px, 92vw); margin-inline:auto; padding: 28px 0 60px}
+
+/* Header (sticky, glassy) */
+header{
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: saturate(120%) blur(10px);
+  background: color-mix(in oklab, var(--bg) 92%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+.nav{
+  width:min(980px,92vw); margin:auto;
+  display:flex; align-items:center; gap:16px;
+  padding: 12px 0;
+}
+.brand{
+  display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px
+}
+.brand img{width:28px; height:28px; border-radius:50%; box-shadow:var(--shadow)}
+.spacer{flex:1}
+.nav a{opacity:.9; transition:opacity var(--speed) ease}
+.nav a:hover{opacity:1}
+
+/* Pills & toggle */
+.pill, .theme-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  border:1px solid var(--border);
+  padding:10px 14px; border-radius:999px;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--panel) 96%, transparent), var(--panel));
+  box-shadow: var(--shadow);
+  cursor:pointer; font-weight:600;
+  transition: transform var(--speed) ease, border-color var(--speed) ease, box-shadow var(--speed) ease, background var(--speed) ease;
+}
+.pill:hover, .theme-btn:hover{
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--brand) 30%, var(--border));
+  box-shadow: 0 10px 26px rgba(0,0,0,.12);
+}
+
+/* Hero */
+.hero{
+  display:grid; gap:20px; align-items:center;
+  grid-template-columns: 1.1fr .9fr;
+  padding: 36px 0 12px;
+}
+@media (max-width: 860px){ .hero{ grid-template-columns: 1fr } }
+
+.big{font-size: clamp(34px, 6vw, 52px); line-height:1.05; letter-spacing:.2px; margin: 6px 0 10px}
+.kicker{
+  display:inline-block; font-weight:700; font-size:14px; letter-spacing: .22em; text-transform:uppercase;
+  color: var(--brand); background: color-mix(in oklab, var(--brand-2) 12%, transparent);
+  padding:6px 10px; border-radius: 10px; transform: translateY(2px);
+}
+.sub{color:var(--muted); max-width: 68ch}
+.cta-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+
+/* Photo cut-out */
+.avatar{
+  margin:0; justify-self:end; align-self:end;
+  width: min(420px, 46vw);
+  aspect-ratio: 3/4;
+  display: grid; place-items: end center;
+  border-radius: 22px;
+  background:
+    radial-gradient(180px 120px at 80% 8%, color-mix(in oklab, var(--brand-2) 15%, transparent), transparent 60%),
+    color-mix(in oklab, var(--panel) 96%, transparent);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.avatar img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* sticker look with transparent PNG */
+  transform: translateY(4px);
+  transition: transform .25s ease;
+}
+.avatar:hover img{ transform: translateY(0) }
+
+/* Sections */
+section{margin-top: 36px}
+.h2{font-size: clamp(22px, 3.5vw, 28px); margin: 0 0 8px}
+.muted{color:var(--muted)}
+.grid{display:grid; gap:12px}
+.cols-2{grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))}
+.cols-3{grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))}
+.row{display:flex; flex-wrap:wrap; gap:8px}
+.sp-8{height:8px} .sp-10{height:10px}
+
+/* Cards & chips */
+.card{
+  border:1px solid var(--border);
+  background: linear-gradient(180deg, color-mix(in oklab, var(--panel) 98%, transparent), var(--panel));
+  border-radius: var(--radius);
+  padding:16px;
+  box-shadow: var(--shadow);
+  transition: transform var(--speed) ease, border-color var(--speed) ease, box-shadow var(--speed) ease;
+}
+.card:hover{ transform:translateY(-2px); border-color: color-mix(in oklab, var(--brand) 28%, var(--border)); box-shadow: 0 12px 28px rgba(0,0,0,.18) }
+
+.chip{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 10px; border-radius:999px; font-size: 12px; border:1px solid var(--border);
+  background: color-mix(in oklab, var(--panel) 95%, transparent);
+}
+
+/* Project thumbs */
+.project .thumb{
+  height:140px; border-radius:12px; border:1px solid var(--border); margin-bottom:10px;
+  background:
+    linear-gradient(120deg,
+      color-mix(in oklab, var(--brand) 16%, transparent),
+      color-mix(in oklab, var(--brand-2) 10%, transparent));
+  background-size: cover; background-position:center;
+}
+
+/* Form inputs */
+.input, .textarea{
+  width:100%;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.input:focus, .textarea:focus{
+  border-color: color-mix(in oklab, var(--brand) 35%, var(--border));
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+/* Footer */
+footer{ margin-top: 36px; padding: 20px 0; color: var(--muted); font-size: 14px; text-align:center }
+
+/* Tiny motion */
+@keyframes fadeUp{from{opacity:0; transform: translateY(8px)} to{opacity:1; transform:none}}
+.reveal{opacity:0; transform: translateY(8px); will-change: transform, opacity}
+.reveal.show{animation: fadeUp .45s ease forwards}
+
+
+/* Ensure readable text for buttons in dark mode (and light) */
+.pill,
+.theme-btn {
+  color: var(--text);              /* force text color to theme text */
+}
+
+/* Make sure icons/labels inside inherit correctly */
+.pill i, .pill span,
+.theme-btn i, .theme-btn span {
+  color: inherit;
+}
+
+/* Optional: stronger focus outline for accessibility */
+.pill:focus-visible,
+.theme-btn:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--brand) 60%, var(--border));
+  outline-offset: 2px;
+}
+
+/* Mobile top bar: show ONLY Contact + Theme */
+@media (max-width: 768px) {
+  /* Hide all nav pills by default */
+  .nav .pill { display: none !important; }
+
+  /* Keep Contact visible */
+  .nav .pill[href="#contact"] { display: inline-flex !important; }
+
+  /* Keep theme toggle (icon only) visible */
+  #themeToggle { display: inline-flex !important; }
+  #themeToggle span { display: none !important; }
+
+  /* Ensure clean single row layout */
+  .nav { display: flex; align-items: center; gap: 8px; }
+  .spacer { flex: 1 1 auto; } /* brand left, buttons right */
+}
+
+/* Fix self photo scaling + centering */
+@media (max-width: 768px) {
+  .avatar {
+    order: 2;
+    margin: 16px auto 0;
+    width: min(420px, 85vw);
+    aspect-ratio: 3 / 4;
+    border-radius: 16px;
+    overflow: hidden;
+    background: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .avatar img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    display: block;
+    object-fit: contain;      /* keeps proportions */
+    object-position: center;  /* centers image */
+  }
+}
