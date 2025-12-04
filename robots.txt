@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /OldSite/
+Allow: /
+
+# Sitemap: https://cavoli.tech/sitemap.xml NEEDS TO BE ADDED IF U WANT TO GROW SITE
