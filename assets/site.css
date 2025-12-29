@@ -241,3 +241,42 @@ footer{ margin-top: 36px; padding: 20px 0; color: var(--muted); font-size: 14px;
     object-position: center;  /* centers image */
   }
 }
+
+/* Winner badge */
+/* Ensure badge can sit slightly outside card without being clipped */
+.card.project{
+  position: relative;
+  overflow: visible;
+}
+
+/* Yellow winner badge (top-right) */
+.badge.winner{
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 6;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 12px 6px 10px;
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #fff7bc 0%, #ffe16a 42%, #ffbd2f 100%);
+  color: #4a2d00;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+
+  box-shadow:
+    0 12px 28px -12px rgba(255, 173, 0, .75),
+    0 3px 8px rgba(0, 0, 0, .12),
+    inset 0 1px 0 rgba(255,255,255,.85),
+    0 0 0 1px rgba(255,196,32,.38);
+  backdrop-filter: saturate(120%) blur(4px);
+  isolation: isolate;
+  pointer-events: none;
+}
+
