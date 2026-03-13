@@ -57,164 +57,174 @@
     </nav>
   </header>
 
-  <main id="top" class="container">
-    <!-- HERO -->
-    <section class="hero reveal">
-      <div class="hero-text">
-        <span class="kicker">Hello, I'm</span>
-        <h1 class="big">Alexander Cavoli</h1>
-        <p class="sub">
-          CS & Mathematics student. I build backend services, data tooling, and clean web apps.
-          I care about reliability, performance, and developer experience.
-        </p>
-        <div class="cta-row">
-          <a class="pill" href="https://github.com/TheByteGuy" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
-          <a class="pill" href="https://www.linkedin.com/in/alexander-cavoli-845b96358" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-          <a class="pill" href="assets/resume.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i> Resume</a>
-          <a class="pill" href="#contact"><i class="fa-regular fa-paper-plane"></i> Contact</a>
-        </div>
+  <main id="top">
+    <!-- BAND 1: Hero (dark) -->
+    <div class="band band-dark">
+      <div class="container">
+        <section class="hero reveal">
+          <div class="hero-text">
+            <span class="kicker">Hello, I’m</span>
+            <h1 class="big">Alexander Cavoli</h1>
+            <p class="sub">
+              CS & Mathematics student. I build backend services, data tooling, and clean web apps.
+              I care about reliability, performance, and developer experience.
+            </p>
+            <div class="cta-row">
+              <a class="pill" href="https://github.com/TheByteGuy" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a class="pill" href="https://www.linkedin.com/in/alexander-cavoli-845b96358" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+              <a class="pill" href="assets/resume.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i> Resume</a>
+              <a class="pill" href="#contact"><i class="fa-regular fa-paper-plane"></i> Contact</a>
+            </div>
+          </div>
+
+          <!-- PHOTO CUT-OUT -->
+          <figure class="avatar" aria-label="Photo of Alexander Cavoli">
+            <img src="assets/selfPhoto.png" alt="Alexander Cavoli portrait" />
+          </figure>
+        </section>
       </div>
+    </div>
 
-      <!-- PHOTO CUT-OUT (use a transparent PNG at assets/headshot.png) -->
-      <figure class="avatar" aria-label="Photo of Alexander Cavoli">
-        <img src="assets/selfPhoto.png" alt="Alexander Cavoli portrait" />
-      </figure>
-    </section>
+    <!-- BAND 2: Projects (light) -->
+    <div class="band band-light">
+      <div class="container">
+        <section id="projects" class="reveal">
+          <h2 class="h2">Projects</h2>
+          <p class="muted" style="margin:4px 0 12px">A few things I’ve shipped recently.</p>
+          <div class="grid cols-3">
 
-    <!-- PROJECTS -->
-    <section id="projects" class="reveal">
-      <h2 class="h2">Projects</h2>
-      <p class="muted" style="margin:4px 0 12px">A few things I’ve shipped recently.</p>
-      <div class="grid cols-3">
+            <a class="card project" href="https://github.com/TheByteGuy/TrailMate" target="_blank" rel="noopener" aria-label="TrailMate">
+              <span class="badge winner"><i class="fa-solid fa-trophy"></i> Winner</span>
 
-        <a class="card project" href="https://github.com/TheByteGuy/TrailMate" target="_blank" rel="noopener" aria-label="TrailMate">
-          <span class="badge winner"><i class="fa-solid fa-trophy"></i> Winner</span>
+              <div class="thumb" id="tmThumb" style="background-image: url(‘assets/trailmate.png’);"></div>
+              <h3>TrailMate</h3>
+              <p class="muted">A campus walking companion with social meetups, AR navigation, live map tracking, and AI driven trend detection.</p>
+              <div class="row">
+                <span class="chip"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                <span class="chip"><i class="fa-brands fa-js"></i> JavaScript</span>
+                <span class="chip"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+                <span class="chip"><i class="fa-solid fa-database"></i> Snowflake</span>
+              </div>
+            </a>
 
-          <div class="thumb" id="tmThumb" style="background-image: url('assets/trailmate.png');"></div>
-          <h3>TrailMate</h3>
-          <p class="muted">A campus walking companion with social meetups, AR navigation, live map tracking, and AI driven trend detection.</p>
-          <div class="row">
-            <span class="chip"><i class="fa-brands fa-node-js"></i> Node.js</span>
-            <span class="chip"><i class="fa-brands fa-js"></i> JavaScript</span>
-            <span class="chip"><i class="fa-brands fa-css3-alt"></i> CSS</span>
-            <span class="chip"><i class="fa-solid fa-database"></i> Snowflake</span>
+            <a class="card project" href="https://github.com/TheByteGuy/bytebite" target="_blank" rel="noopener" aria-label="ByteBite">
+              <span class="badge winner"><i class="fa-solid fa-trophy"></i> Winner</span>
+
+              <div class="thumb" id="bbThumb" style="background-image: url(‘assets/lightByteBite.png’);"></div>
+              <h3>Byte Bite</h3>
+              <p class="muted">A reversed engineered auto updating campus menu, with meal customization.</p>
+              <div class="row">
+                <span class="chip"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                <span class="chip"><i class="fa-brands fa-html5"></i> HTML</span>
+                <span class="chip"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+                <span class="chip"><i class="fa-brands fa-python"></i> Python</span>
+              </div>
+            </a>
+
+            <a class="card project" href="https://presentationassistants.com/" target="_blank" rel="noopener" aria-label="Presentation Assistants">
+              <div class="thumb" id="paThumb" style="background-image: url(‘assets/lightPaBanner.png’);"></div>
+              <h3>Presentation Assistants</h3>
+              <p class="muted">Interactive slide tools with quizzes, surveys, and live triggers.</p>
+              <div class="row">
+                <span class="chip"><i class="fa-brands fa-php"></i> PHP</span>
+                <span class="chip"><i class="fa-brands fa-js"></i> JS</span>
+                <span class="chip"><i class="fa-brands fa-bootstrap"></i> Bootstrap</span>
+              </div>
+            </a>
+
+            <a class="card project" href="https://github.com/TheByteGuy/HackRPI2024" target="_blank" rel="noopener" aria-label="Critter Capture">
+              <div class="thumb" id="ccThumb" style="background-image: url(‘assets/lightCCbanner.png’);"></div>
+              <h3>Critter Capture</h3>
+              <p class="muted">AI powered wildlife identification and gamified exploration platform.</p>
+              <div class="row">
+                <span class="chip"><i class="fa-brands fa-python"></i> Python</span>
+                <span class="chip"><i class="fa-solid fa-robot"></i> AI</span>
+                <span class="chip"><i class="fa-solid fa-map-location-dot"></i> Geo</span>
+              </div>
+            </a>
+
+            <a class="card project" href="https://github.com/TheByteGuy/Connect-4-M-M-Final" target="_blank" rel="noopener" aria-label="Simple Connect 4 AI">
+              <span class="badge winner"><i class="fa-solid fa-trophy"></i> Winner</span>
+              <div class="thumb" id="aiThumb" style="background-image: url(‘assets/lightAIbanner.png’);"></div>
+              <h3>Simple Connect 4 AI</h3>
+              <p class="muted">Simple Connect 4 AI using a Minimax algorithm with alpha beta.</p>
+              <div class="row">
+                <span class="chip"><i class="fa-solid fa-chess-board"></i> Minimax</span>
+                <span class="chip"><i class="fa-solid fa-filter"></i> Alpha–Beta</span>
+              </div>
+            </a>
           </div>
-        </a>
-
-        <a class="card project" href="https://github.com/TheByteGuy/bytebite" target="_blank" rel="noopener" aria-label="ByteBite">
-          <span class="badge winner"><i class="fa-solid fa-trophy"></i> Winner</span>
-
-          <div class="thumb" id="bbThumb" style="background-image: url('assets/lightByteBite.png');"></div>
-          <h3>Byte Bite</h3>
-          <p class="muted">A reversed engineered auto updating campus menu, with meal customization.</p>
-          <div class="row">
-            <span class="chip"><i class="fa-brands fa-node-js"></i> Node.js</span>
-            <span class="chip"><i class="fa-brands fa-html5"></i> HTML</span>
-            <span class="chip"><i class="fa-brands fa-css3-alt"></i> CSS</span>
-            <span class="chip"><i class="fa-brands fa-python"></i> Python</span>
-          </div>
-        </a>
-
-
-        <a class="card project" href="https://presentationassistants.com/" target="_blank" rel="noopener" aria-label="Presentation Assistants">
-          <div class="thumb" id="paThumb" style="background-image: url('assets/lightPaBanner.png');"></div>
-          <h3>Presentation Assistants</h3>
-          <p class="muted">Interactive slide tools with quizzes, surveys, and live triggers.</p>
-          <div class="row">
-            <span class="chip"><i class="fa-brands fa-php"></i> PHP</span>
-            <span class="chip"><i class="fa-brands fa-js"></i> JS</span>
-            <span class="chip"><i class="fa-brands fa-bootstrap"></i> Bootstrap</span>
-          </div>
-        </a>
-
-        <a class="card project" href="https://github.com/TheByteGuy/HackRPI2024" target="_blank" rel="noopener" aria-label="Critter Capture">
-          <div class="thumb" id="ccThumb" style="background-image: url('assets/lightCCbanner.png');"></div>
-          <h3>Critter Capture</h3>
-          <p class="muted">AI powered wildlife identification and gamified exploration platform.</p>
-          <div class="row">
-            <span class="chip"><i class="fa-brands fa-python"></i> Python</span>
-            <span class="chip"><i class="fa-solid fa-robot"></i> AI</span>
-            <span class="chip"><i class="fa-solid fa-map-location-dot"></i> Geo</span>
-          </div>
-        </a>
-
-        <a class="card project" href="https://github.com/TheByteGuy/Connect-4-M-M-Final" target="_blank" rel="noopener" aria-label="Simple Connect 4 AI">
-          <span class="badge winner"><i class="fa-solid fa-trophy"></i> Winner</span>
-          <div class="thumb" id="aiThumb" style="background-image: url('assets/lightAIbanner.png');"></div>
-          <h3>Simple Connect 4 AI</h3>
-          <p class="muted">Simple Connect 4 AI using a Minimax algorithm with alpha beta.</p>
-          <div class="row">
-            <span class="chip"><i class="fa-solid fa-chess-board"></i> Minimax</span>
-            <span class="chip"><i class="fa-solid fa-filter"></i> Alpha–Beta</span>
-          </div>
-        </a>
+        </section>
       </div>
-    </section>
+    </div>
 
-    <!-- SKILLS -->
-    <section id="skills" class="reveal">
-      <h2 class="h2">Skills</h2>
-      <div class="grid cols-3">
-        <div class="card">
-          <h3>Languages</h3>
-          <div class="row">
-            <span class="chip">C</span><span class="chip">C++</span><span class="chip">C#</span>
-            <span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">CSS</span>
-            <span class="chip">PHP</span><span class="chip">SQL</span>
+    <!-- BAND 3: Skills + Contact (dark) -->
+    <div class="band band-dark">
+      <div class="container">
+        <section id="skills" class="reveal">
+          <h2 class="h2">Skills</h2>
+          <div class="grid cols-3">
+            <div class="card">
+              <h3>Languages</h3>
+              <div class="row">
+                <span class="chip">C</span><span class="chip">C++</span><span class="chip">C#</span>
+                <span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">CSS</span>
+                <span class="chip">PHP</span><span class="chip">SQL</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Frameworks & Tools</h3>
+              <div class="row">
+                <span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">React</span>
+                <span class="chip">Docker</span><span class="chip">Git</span><span class="chip">Linux</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Databases & Infra</h3>
+              <div class="row">
+                <span class="chip">MySQL/MariaDB</span><span class="chip">SQLite</span>
+                <span class="chip">Redis</span><span class="chip">AWS EC2</span><span class="chip">Nginx</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <h3>Frameworks & Tools</h3>
-          <div class="row">
-            <span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">React</span>
-            <span class="chip">Docker</span><span class="chip">Git</span><span class="chip">Linux</span>
+        </section>
+
+        <section id="contact" class="reveal">
+          <h2 class="h2">Contact</h2>
+          <div class="grid cols-2">
+            <div class="card">
+              <h3>Reach out</h3>
+              <p class="muted">I’m actively looking for a internship, please contact me if possible! I also am available for projects and collaborations.</p>
+              <div class="row" style="margin-top:6px">
+                <a class="pill" href="mailto:cavola@rpi.edu"><i class="fa-regular fa-envelope"></i> cavola@rpi.edu</a>
+                <a class="pill" href="/assets/resume.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i> Resume</a>
+              </div>
+            </div>
+            <form class="card" action="mailto:cavola@rpi.edu" method="post" enctype="text/plain">
+              <h3>Quick message</h3>
+              <label>
+                <div class="muted">Your name</div>
+                <input required type="text" name="name" placeholder="Ada Lovelace" class="input" />
+              </label>
+              <div class="sp-8"></div>
+              <label>
+                <div class="muted">Email</div>
+                <input required type="email" name="email" placeholder="ada@example.com" class="input" />
+              </label>
+              <div class="sp-8"></div>
+              <label>
+                <div class="muted">Message</div>
+                <textarea required name="message" rows="5" placeholder="Tell me about your idea…" class="textarea"></textarea>
+              </label>
+              <div class="sp-10"></div>
+              <button class="pill" type="submit" style="justify-self:start"><i class="fa-regular fa-paper-plane"></i> Send</button>
+            </form>
           </div>
-        </div>
-        <div class="card">
-          <h3>Databases & Infra</h3>
-          <div class="row">
-            <span class="chip">MySQL/MariaDB</span><span class="chip">SQLite</span>
-            <span class="chip">Redis</span><span class="chip">AWS EC2</span><span class="chip">Nginx</span>
-          </div>
-        </div>
+        </section>
+
+        <footer class="muted">&copy; <span id="year"></span> Alexander Cavoli</footer>
       </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="reveal">
-      <h2 class="h2">Contact</h2>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Reach out</h3>
-          <p class="muted">I’m actively looking for a internship, please contact me if possible! I also am available for projects and collaborations.</p>
-          <div class="row" style="margin-top:6px">
-            <a class="pill" href="mailto:cavola@rpi.edu"><i class="fa-regular fa-envelope"></i> cavola@rpi.edu</a>
-            <a class="pill" href="/assets/resume.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i> Resume</a>
-          </div>
-        </div>
-        <form class="card" action="mailto:cavola@rpi.edu" method="post" enctype="text/plain">
-          <h3>Quick message</h3>
-          <label>
-            <div class="muted">Your name</div>
-            <input required type="text" name="name" placeholder="Ada Lovelace" class="input" />
-          </label>
-          <div class="sp-8"></div>
-          <label>
-            <div class="muted">Email</div>
-            <input required type="email" name="email" placeholder="ada@example.com" class="input" />
-          </label>
-          <div class="sp-8"></div>
-          <label>
-            <div class="muted">Message</div>
-            <textarea required name="message" rows="5" placeholder="Tell me about your idea…" class="textarea"></textarea>
-          </label>
-          <div class="sp-10"></div>
-          <button class="pill" type="submit" style="justify-self:start"><i class="fa-regular fa-paper-plane"></i> Send</button>
-        </form>
-      </div>
-    </section>
-
-    <footer class="muted">© <span id="year"></span> Alexander Cavoli</footer>
+    </div>
   </main>
 
 <script>
@@ -238,12 +248,22 @@
     if (label) label.textContent = next;
     if (icon)  icon.className = (theme === 'dark') ? 'fa-regular fa-sun' : 'fa-regular fa-moon';
 
-    // Optional: swap banner if you have dark/light assets
+    // Set project banners (swap dark/light where variants exist)
+    const tm = document.getElementById('tmThumb');
+    if (tm){ tm.style.backgroundImage = "url('assets/trailmate.png')"; }
+
     const pa = document.getElementById('paThumb');
     if (pa){
       pa.style.backgroundImage = theme === 'dark'
         ? "url('assets/darkPaBanner.png')"
         : "url('assets/lightPaBanner.png')";
+    }
+
+    const bb = document.getElementById('bbThumb');
+    if (bb){
+      bb.style.backgroundImage = theme === 'dark'
+        ? "url('assets/darkByteBite.png')"
+        : "url('assets/lightByteBite.png')";
     }
 
     const cc = document.getElementById('ccThumb');
