@@ -163,6 +163,28 @@ section + section{margin-top: 36px}
   background-size: cover; background-position:center;
   background-color: color-mix(in oklab, var(--brand) 10%, var(--panel));
 }
+/* Show the whole image (e.g. a transparent logo) instead of cropping it */
+.project .thumb-contain{ background-size:auto 85%; background-repeat:no-repeat }
+
+/* Project link chooser (GitHub vs. demo video) */
+.link-dialog{
+  width:min(460px, calc(100vw - 32px)); padding:0;
+  border:1px solid var(--border); border-radius: var(--radius);
+  background: var(--panel); color: var(--text);
+  box-shadow: 0 24px 60px rgba(0,0,0,.3);
+}
+.link-dialog::backdrop{ background: rgba(8,12,24,.55); backdrop-filter: blur(3px) }
+.link-dialog-body{ position:relative; padding:20px }
+.link-dialog h3{ margin:0 32px 4px 0 }
+.link-dialog p{ margin:0 0 14px }
+.link-dialog-close{
+  position:absolute; top:12px; right:12px;
+  width:32px; height:32px; display:grid; place-items:center;
+  border:1px solid var(--border); border-radius:50%;
+  background:transparent; color:var(--muted); cursor:pointer;
+  transition: color var(--speed) ease, border-color var(--speed) ease;
+}
+.link-dialog-close:hover{ color:var(--text); border-color: color-mix(in oklab, var(--brand) 30%, var(--border)) }
 
 /* Form inputs */
 .input, .textarea{

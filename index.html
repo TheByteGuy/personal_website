@@ -94,6 +94,20 @@
           <p class="muted" style="margin:4px 0 12px">A few things I’ve shipped recently.</p>
           <div class="grid cols-3">
 
+            <a class="card project" href="https://github.com/BrianTam100/Liter-allyTrash" data-video="https://youtu.be/nyIUmd4PhdU" target="_blank" rel="noopener" aria-label="AI Auto Sort Rover" aria-haspopup="dialog">
+              <span class="badge winner"><i class="fa-solid fa-trophy"></i> Winner</span>
+
+              <div class="thumb thumb-contain" id="arThumb" style="background-image: url('assets/literallyTrash.png'); background-position: 30% 70%;"></div>
+              <h3>AI Auto Sort Rover</h3>
+              <p class="muted">Best Hardware Hack at Cornell's BigRedHacks. A rover that uses CLIP vision to sort waste into the right bin.</p>
+              <div class="row">
+                <span class="chip"><i class="fa-brands fa-python"></i> Python</span>
+                <span class="chip"><i class="fa-solid fa-microchip"></i> Arduino</span>
+                <span class="chip"><i class="fa-brands fa-raspberry-pi"></i> Raspberry Pi</span>
+                <span class="chip"><i class="fa-solid fa-eye"></i> CLIP</span>
+              </div>
+            </a>
+
             <a class="card project" href="https://github.com/TheByteGuy/TrailMate" target="_blank" rel="noopener" aria-label="TrailMate">
               <span class="badge winner"><i class="fa-solid fa-trophy"></i> Winner</span>
 
@@ -258,6 +272,19 @@
     </div>
   </main>
 
+  <!-- Link chooser for project cards that have more than one destination -->
+  <dialog id="linkDialog" class="link-dialog" aria-labelledby="linkDialogTitle">
+    <div class="link-dialog-body">
+      <button type="button" class="link-dialog-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <h3 id="linkDialogTitle"></h3>
+      <p class="muted">Where would you like to go?</p>
+      <div class="row">
+        <a class="pill" id="linkDialogCode" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        <a class="pill" id="linkDialogVideo" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Watch the demo</a>
+      </div>
+    </div>
+  </dialog>
+
 <script>
   const root = document.documentElement;
   const themeMeta = document.querySelector('meta[name="theme-color"]');
@@ -341,6 +368,25 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }});
   }, {threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+  // Project cards with a demo video: ask whether to open GitHub or the video
+  const linkDialog = document.getElementById('linkDialog');
+  if (linkDialog?.showModal) {
+    document.querySelectorAll('.card.project[data-video]').forEach(card => {
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        linkDialog.querySelector('#linkDialogTitle').textContent = card.getAttribute('aria-label');
+        linkDialog.querySelector('#linkDialogCode').href = card.href;
+        linkDialog.querySelector('#linkDialogVideo').href = card.dataset.video;
+        linkDialog.showModal();
+      });
+    });
+    linkDialog.querySelector('.link-dialog-close').addEventListener('click', () => linkDialog.close());
+    // Close on backdrop click or after choosing a link
+    linkDialog.addEventListener('click', (e) => {
+      if (e.target === linkDialog || e.target.closest('a')) linkDialog.close();
+    });
+  }
 
   // Contact form: submit to Web3Forms in the background (plain POST still works without JS)
   const contactForm = document.getElementById('contactForm');
